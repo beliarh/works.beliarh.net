@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Select } from 'antd';
 import { FormContext, RecordContext } from '../../../contexts';
+import { getRecordById } from '../../../utils';
 
 const filterOption = (inputValue, { props: { name } }) => {
   inputValue = inputValue.trim().toLowerCase();
@@ -17,7 +18,23 @@ const CredentialSitesField = () => {
   const form = useContext(FormContext);
   const credential = useContext(RecordContext);
   const sites = useSelector(state => state.sites);
+  const id = credential && credential.id;
   const initialValue = (credential && credential.siteIds) || [];
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+
+    const siteIds = form.getFieldValue('siteIds');
+    const filteredSiteIds = siteIds.filter(id => getRecordById(sites.list, id));
+
+    if (siteIds.length !== filteredSiteIds.length) {
+      form.setFieldsValue({
+        siteIds: filteredSiteIds,
+      });
+    }
+  }, [form, sites.list, id]);
 
   return (
     <Form.Item label="Sites" extra="Only for sites on the same domain">
