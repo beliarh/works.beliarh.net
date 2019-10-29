@@ -111,8 +111,8 @@
   .work__images {
     margin: 0 auto;
     padding-bottom: 0;
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
   }
 
   .work__images--empty::before {
@@ -164,11 +164,6 @@
 }
 
 @media (min-width: 768px) {
-  .work__images {
-    width: 20rem;
-    height: 20rem;
-  }
-
   .work__images--empty::before {
     font-size: 3rem;
   }
