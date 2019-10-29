@@ -1,0 +1,11 @@
+.works {
+  display: block;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+@media (min-width: 540px) {
+  .works {
+    margin-top: 3rem;
+  }
+}

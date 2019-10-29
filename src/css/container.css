@@ -1,0 +1,33 @@
+@keyframes container-show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  max-width: 65rem;
+  opacity: 0;
+  animation-name: container-show;
+  animation-duration: 1s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    animation: none;
+    opacity: 1;
+  }
+}

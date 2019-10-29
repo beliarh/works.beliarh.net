@@ -1,0 +1,26 @@
+{
+  "credentials": [
+    {
+      "id": 1,
+      "login": "example-user",
+      "password": "example-password",
+      "encryptedPassword": "example-encrypted-password",
+      "expirationDate": "2006-01-02",
+      "siteIds": [1]
+    }
+  ],
+  "sites": [
+    {
+      "id": 1,
+      "name": "example-site",
+      "description": "Site description",
+      "images": ["/images/example-image.jpg"],
+      "year": 2006,
+      "url": "/example-site/",
+      "github": "https://github.com/example-user/example-site/",
+      "stack": ["html", "css", "js"],
+      "active": true,
+      "public": false
+    }
+  ]
+}

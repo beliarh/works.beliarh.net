@@ -1,0 +1,17 @@
+{
+  "name": "beliarh/works",
+  "authors": [
+    {
+      "name": "Dmitry Artemov",
+      "email": "art.beliarh@gmail.com"
+    }
+  ],
+  "config": {
+    "vendor-dir": "backend/vendor"
+  },
+  "require": {
+    "ext-fileinfo": "*",
+    "ext-json": "*",
+    "google/apiclient": "^2.0"
+  }
+}

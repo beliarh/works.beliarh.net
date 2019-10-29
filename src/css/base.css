@@ -1,0 +1,11 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  background: radial-gradient(circle, #fff 25%, #ccc) #fff fixed;
+}

@@ -1,0 +1,137 @@
+{
+  "name": "works.beliarh.net",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dmitry Artemov <art.beliarh@gmail.com> (https://beliarh.net/)",
+  "license": "ISC",
+  "homepage": "https://works.beliarh.net/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beliarh/works.beliarh.net.git"
+  },
+  "bugs": {
+    "url": "https://github.com/beliarh/works.beliarh.net/issues"
+  },
+  "scripts": {
+    "start:backend": "mkdirp public_html && php -S 127.0.0.1:3000 -t public_html",
+    "start:frontend": "node server.js",
+    "start": "run-p start:*",
+    "prebuild": "rimraf public_html",
+    "build": "parcel build src/index.html src/admin/index.html --out-dir public_html",
+    "postbuild": "rimraf public_html/index.html public_html/admin/index.html",
+    "lint:js": "eslint \"src/**/*.js\"",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "lint": "run-s lint:*",
+    "format": "prettier --write \"**/*.{php,html,css,js,json}\" \"!backend/vendor/**\""
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ],
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-prettier/recommended"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2019,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "plugins": [
+      "react",
+      "react-hooks",
+      "jsx-a11y"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{php,html,css,js,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "staticFiles": {
+    "staticPath": "static",
+    "watcherGlob": "**"
+  },
+  "dependencies": {
+    "antd": "^3.24.3",
+    "core-js": "^3.3.5",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.3",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.11.2",
+    "autoprefixer": "^9.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.20.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-bundle-manifest": "beliarh/parcel-plugin-bundle-manifest#f48aae2",
+    "parcel-plugin-ogimage": "^1.1.0",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-prettier": "^6.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-prettier": "^1.1.1"
+  }
+}

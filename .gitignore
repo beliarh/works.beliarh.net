@@ -1,1 +1,8 @@
+.cache/
 .idea/
+backend/vendor/
+backend/data/*.json
+!backend/data/*.example.json
+backend/htpasswd/*.htpasswd
+node_modules/
+public_html/
