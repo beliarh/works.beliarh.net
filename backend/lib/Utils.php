@@ -65,6 +65,10 @@ class Utils
    */
   public static function getServerUrl(): string
   {
+    if (php_sapi_name() === 'cli') {
+      return 'https://works.beliarh.net';
+    }
+
     $host = $_SERVER['HTTP_HOST'];
     $https = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
     $protocol = $https ? 'https' : 'http';
