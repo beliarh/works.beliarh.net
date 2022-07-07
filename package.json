@@ -98,7 +98,7 @@
   "dependencies": {
     "antd": "^3.24.3",
     "core-js": "^3.3.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
